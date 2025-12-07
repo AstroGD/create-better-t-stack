@@ -190,10 +190,10 @@ async function updateRootPackageJson(projectDir: string, options: ProjectConfig)
       }
     }
     if (options.dbSetup === "docker") {
-      scripts["db:start"] = `bun run --filter ${dbPackageName} db:start`;
-      scripts["db:watch"] = `bun run --filter ${dbPackageName} db:watch`;
-      scripts["db:stop"] = `bun run --filter ${dbPackageName} db:stop`;
-      scripts["db:down"] = `bun run --filter ${dbPackageName} db:down`;
+      scripts["db:start"] = `bun run --filter ${dbPackageName} --env-mode=loose db:start`;
+      scripts["db:watch"] = `bun run --filter ${dbPackageName} --env-mode=loose db:watch`;
+      scripts["db:stop"] = `bun run --filter ${dbPackageName} --env-mode=loose db:stop`;
+      scripts["db:down"] = `bun run --filter ${dbPackageName} --env-mode=loose db:down`;
     }
   }
 
